@@ -2,7 +2,7 @@
 {
     public class Order
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public Services? Services { get; set; }
         public Client? Client { get; set; }
         public DateTime DateTimeRecording { get; set; }

@@ -2,7 +2,7 @@
 {
     public class Account
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Login { get; set; } = default!;
         public string PasswordHash { get; set; } = default!;
     }
