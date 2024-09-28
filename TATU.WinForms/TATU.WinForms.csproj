@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TATU.Application\TATU.Application.csproj" />
     <ProjectReference Include="..\TATU.Domain\TATU.Domain.csproj" />
     <ProjectReference Include="..\TATU.Infrastructure\TATU.Infrastructure.csproj" />

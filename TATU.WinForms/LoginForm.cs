@@ -35,5 +35,12 @@ namespace TATU.WinForms
             PasswordTextBox.Text = null;
             PasswordTextBox.ForeColor = Color.Black;
         }
+
+        private void SingInButton_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+            
+        }
     }
 }

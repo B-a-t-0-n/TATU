@@ -99,6 +99,7 @@
             SingInButton.TabIndex = 4;
             SingInButton.Text = "Вход";
             SingInButton.UseVisualStyleBackColor = false;
+            SingInButton.Click += SingInButton_Click;
             // 
             // RegistrButton
             // 
