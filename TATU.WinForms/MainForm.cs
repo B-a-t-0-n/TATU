@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Runtime.InteropServices;
 using FontAwesome.Sharp;
 using Color = System.Drawing.Color;
+
 
 namespace TATU.WinForms
 {
@@ -17,6 +9,7 @@ namespace TATU.WinForms
     {
         bool sidebarExpand;
         private IconButton currentBtn;
+        private Form activeForm;
 
         bool drag = false;
         Point start_point = new Point(0, 0);
@@ -24,7 +17,8 @@ namespace TATU.WinForms
         {
             InitializeComponent();
         }
-        private void ActivateButton(object senderBtn, Color color)
+
+        private void ActivateButton(object senderBtn, Color color) // Метод активации кнопок
         {
             if (senderBtn != null)
             {
@@ -35,11 +29,11 @@ namespace TATU.WinForms
                 currentBtn.IconColor = color;
             }
         }
-        private struct RGBColors
+        private struct RGBColors // Цвета использованые для изменения кнопок
         {
             public static Color color1 = Color.FromArgb(3, 135, 126);
         }
-        private void DisableButton()
+        private void DisableButton() // Метод Диактивации кнопок
         {
             if (currentBtn != null)
             {
@@ -48,7 +42,7 @@ namespace TATU.WinForms
                 currentBtn.IconColor = Color.White;
             }
         }
-        private void PanelMenuTimer_Tick(object sender, EventArgs e)
+        private void PanelMenuTimer_Tick(object sender, EventArgs e) // Панельное меню
         {
             if (sidebarExpand)
             {
@@ -69,9 +63,26 @@ namespace TATU.WinForms
                 }
             }
         }
+        private void OpenForm(Form childForm, object btnSender) // метод открытия в панели новой формы
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.MainUniversalPanel.Controls.Add(childForm);
+            this.MainUniversalPanel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
         private void CounselingButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenForm(new RecordinForm(), sender);
         }
 
         private void ReceptionButton_Click(object sender, EventArgs e)
@@ -99,15 +110,29 @@ namespace TATU.WinForms
 
         }
 
-        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        //private extern static void ReleaseCapture();
+        // Методы для управления формой
 
-        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        //private extern static void SendMessage (System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
         {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
 
+        private void MainMenuPanelHeader_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

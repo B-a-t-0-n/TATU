@@ -47,13 +47,14 @@
             panel7 = new Panel();
             label1 = new Label();
             panel4 = new Panel();
+            MainMenuPanelHeader = new Panel();
             button4 = new Button();
             panel9 = new Panel();
             panel10 = new Panel();
             PositionLabel = new Label();
             FIOLabel = new Label();
             pictureBox1 = new PictureBox();
-            panel1 = new Panel();
+            MainUniversalPanel = new Panel();
             PanelMenuTimer = new System.Windows.Forms.Timer(components);
             ButtonHeaderPanel = new Panel();
             RollUpButton = new Button();
@@ -69,6 +70,7 @@
             panel5.SuspendLayout();
             panel7.SuspendLayout();
             panel4.SuspendLayout();
+            MainMenuPanelHeader.SuspendLayout();
             panel9.SuspendLayout();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -129,7 +131,7 @@
             iconButton2.FlatStyle = FlatStyle.Flat;
             iconButton2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             iconButton2.ForeColor = Color.White;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Napster;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Firefox;
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 50;
@@ -308,7 +310,7 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(button4);
+            panel4.Controls.Add(MainMenuPanelHeader);
             panel4.Controls.Add(panel9);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
@@ -316,13 +318,23 @@
             panel4.Size = new Size(250, 200);
             panel4.TabIndex = 0;
             // 
+            // MainMenuPanelHeader
+            // 
+            MainMenuPanelHeader.Controls.Add(button4);
+            MainMenuPanelHeader.Dock = DockStyle.Top;
+            MainMenuPanelHeader.Location = new Point(0, 0);
+            MainMenuPanelHeader.Name = "MainMenuPanelHeader";
+            MainMenuPanelHeader.Size = new Size(250, 80);
+            MainMenuPanelHeader.TabIndex = 1;
+            MainMenuPanelHeader.MouseDown += MainMenuPanelHeader_MouseDown;
+            // 
             // button4
             // 
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(11, 15);
+            button4.Location = new Point(12, 12);
             button4.Name = "button4";
             button4.Size = new Size(50, 49);
             button4.TabIndex = 1;
@@ -343,7 +355,7 @@
             // 
             panel10.Controls.Add(PositionLabel);
             panel10.Controls.Add(FIOLabel);
-            panel10.Location = new Point(90, 25);
+            panel10.Location = new Point(90, 24);
             panel10.Name = "panel10";
             panel10.Size = new Size(144, 70);
             panel10.TabIndex = 7;
@@ -352,11 +364,11 @@
             // 
             PositionLabel.Anchor = AnchorStyles.Bottom;
             PositionLabel.AutoSize = true;
-            PositionLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            PositionLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
             PositionLabel.ForeColor = Color.White;
             PositionLabel.Location = new Point(31, 40);
             PositionLabel.Name = "PositionLabel";
-            PositionLabel.Size = new Size(86, 20);
+            PositionLabel.Size = new Size(88, 20);
             PositionLabel.TabIndex = 2;
             PositionLabel.Text = "Должность";
             // 
@@ -364,29 +376,31 @@
             // 
             FIOLabel.Anchor = AnchorStyles.Top;
             FIOLabel.AutoSize = true;
-            FIOLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            FIOLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
             FIOLabel.ForeColor = Color.White;
             FIOLabel.Location = new Point(48, 8);
             FIOLabel.Name = "FIOLabel";
-            FIOLabel.Size = new Size(42, 20);
+            FIOLabel.Size = new Size(44, 20);
             FIOLabel.TabIndex = 1;
             FIOLabel.Text = "ФИО";
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(12, 27);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(11, 24);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(60, 60);
+            pictureBox1.Size = new Size(70, 70);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panel1
+            // MainUniversalPanel
             // 
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(250, 134);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1366, 774);
-            panel1.TabIndex = 5;
+            MainUniversalPanel.Dock = DockStyle.Fill;
+            MainUniversalPanel.Location = new Point(250, 50);
+            MainUniversalPanel.Name = "MainUniversalPanel";
+            MainUniversalPanel.Size = new Size(1366, 858);
+            MainUniversalPanel.TabIndex = 5;
             // 
             // PanelMenuTimer
             // 
@@ -447,6 +461,7 @@
             CloseButton.TabIndex = 3;
             CloseButton.Text = "○";
             CloseButton.UseVisualStyleBackColor = true;
+            CloseButton.Click += CloseButton_Click;
             // 
             // HeaderPanel
             // 
@@ -475,11 +490,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(9, 36, 52);
             ClientSize = new Size(1616, 908);
+            Controls.Add(MainUniversalPanel);
             Controls.Add(panel3);
             Controls.Add(HeaderPanel);
-            Controls.Add(panel1);
             Controls.Add(MenuPanel);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "MainForm";
             MenuPanel.ResumeLayout(false);
@@ -493,6 +507,7 @@
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panel4.ResumeLayout(false);
+            MainMenuPanelHeader.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
@@ -504,7 +519,7 @@
 
         #endregion
         private Panel MenuPanel;
-        private Panel panel1;
+        private Panel MainUniversalPanel;
         private System.Windows.Forms.Timer PanelMenuTimer;
         private Panel panel6;
         private Panel panel8;
@@ -534,5 +549,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private Panel panel12;
         private Label label3;
+        private Panel MainMenuPanelHeader;
     }
 }
