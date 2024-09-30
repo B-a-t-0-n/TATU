@@ -46,7 +46,7 @@ namespace TATU.Application.Accounts.AddClient
                 Patronymic = command.Client.Patronymic
             };
 
-            var service = await _servicesRepository.GetById(command.IdService);
+            var service = await _servicesRepository.GetById(command.ServiceId);
 
             var master = await _masterRepository.GetById(command.IdManager);
 
@@ -65,7 +65,7 @@ namespace TATU.Application.Accounts.AddClient
 
             await _accountRepository.Save(manager!);
 
-            return client.Id;
+            return order.Id;
         }
     }
 }

@@ -1,20 +1,20 @@
 ﻿using TATU.Domain;
 
-namespace TATU.Application.Accounts.DeleteOrder
+namespace TATU.Application.Accounts.UpdateOrderMainInfo
 {
-    public class DeleteOrderHandler
+    public class UpdateOrderMainInfoHandler
     {
         private readonly IAccountRepository _accountRepository;
 
-        public DeleteOrderHandler(IAccountRepository accountRepository)
+        public UpdateOrderMainInfoHandler(IAccountRepository accountRepository)
         {
             _accountRepository = accountRepository;
         }
 
-        public async Task<Guid> Handle(DeleteOrderCommand command)
+        public async Task<Guid> Handle(UpdateOrderMainInfoCommand command)
         {
             var account = await _accountRepository.GetById(command.ManagerId)
-                ?? throw new ArgumentNullException("account is null");
+                ?? throw new ArgumentNullException("manager is null");
 
             if (account is Manager == false)
                 throw new Exception("Account is not manager");
@@ -24,7 +24,9 @@ namespace TATU.Application.Accounts.DeleteOrder
             var order = manager!.Orders!.FirstOrDefault(o => o.Id == command.OrderId)
                 ?? throw new ArgumentNullException("order is null");
 
-            manager!.Orders!.Remove(order);
+            order.Note = command.Note;
+            order.PhotoLink = command.PhotoLink;
+            order.DateTimeRecording = command.DateTimeRecording;
 
             await _accountRepository.Save(manager!);
 

@@ -5,8 +5,8 @@ namespace TATU.Application.Accounts.AddClient
     public record AddOrderCommand(
         Guid IdManager,
         ClientDto Client,
-        Guid IdService,
-        Guid IdMaster,
+        Guid ServiceId,
+        Guid MasterId,
         DateTime DateTimeRecording,
         string? PhotoLink,
         string? Note);
