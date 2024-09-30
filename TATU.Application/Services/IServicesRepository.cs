@@ -1,6 +1,6 @@
 ﻿namespace TATU.Application.Services
 {
-    internal interface IServicesRepository
+    public interface IServicesRepository
     {
         Task Create(Domain.Services services);
         Task<Domain.Services> GetById(Guid id);
