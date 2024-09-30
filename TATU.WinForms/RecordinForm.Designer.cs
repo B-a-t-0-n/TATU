@@ -45,6 +45,7 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
+            panel3 = new Panel();
             NavigationPanel.SuspendLayout();
             PanelUpAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -52,9 +53,8 @@
             // 
             // NavigationPanel
             // 
-            NavigationPanel.Controls.Add(SearchButton);
+            NavigationPanel.Controls.Add(panel3);
             NavigationPanel.Controls.Add(PanelUpAdd);
-            NavigationPanel.Controls.Add(textBox1);
             NavigationPanel.Dock = DockStyle.Top;
             NavigationPanel.Location = new Point(0, 0);
             NavigationPanel.Name = "NavigationPanel";
@@ -70,7 +70,7 @@
             SearchButton.IconColor = Color.White;
             SearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             SearchButton.IconSize = 36;
-            SearchButton.Location = new Point(457, 31);
+            SearchButton.Location = new Point(107, 46);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(40, 40);
             SearchButton.TabIndex = 1;
@@ -79,7 +79,9 @@
             // PanelUpAdd
             // 
             PanelUpAdd.Controls.Add(AddButton);
+            PanelUpAdd.Controls.Add(SearchButton);
             PanelUpAdd.Controls.Add(UpdateButton);
+            PanelUpAdd.Controls.Add(textBox1);
             PanelUpAdd.Dock = DockStyle.Right;
             PanelUpAdd.Location = new Point(789, 0);
             PanelUpAdd.Name = "PanelUpAdd";
@@ -118,7 +120,7 @@
             textBox1.BackColor = Color.FromArgb(9, 36, 52);
             textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(82, 31);
+            textBox1.Location = new Point(-268, 46);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(360, 40);
@@ -211,6 +213,13 @@
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             // 
+            // panel3
+            // 
+            panel3.Location = new Point(23, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(250, 155);
+            panel3.TabIndex = 4;
+            // 
             // RecordinForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -224,8 +233,8 @@
             Name = "RecordinForm";
             Text = "RecordinForm";
             NavigationPanel.ResumeLayout(false);
-            NavigationPanel.PerformLayout();
             PanelUpAdd.ResumeLayout(false);
+            PanelUpAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -246,5 +255,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private Panel panel3;
     }
 }

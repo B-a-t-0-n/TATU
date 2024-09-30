@@ -18,7 +18,8 @@ namespace TATU.WinForms
             InitializeComponent();
             this.Text = string.Empty;
             this.ControlBox = false;
-            this.DoubleBuffered = true; 
+            this.DoubleBuffered = true;
+            sidebarExpand = true;
         }
 
         private void ActivateButton(object senderBtn, Color color) // Метод активации кнопок
@@ -101,6 +102,7 @@ namespace TATU.WinForms
         private void button4_Click(object sender, EventArgs e)
         {
             PanelMenuTimer.Start();
+
         }
 
         private void RollUpButton_Click(object sender, EventArgs e)
@@ -109,6 +111,11 @@ namespace TATU.WinForms
         }
 
         private void ReduceButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -131,11 +138,6 @@ namespace TATU.WinForms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

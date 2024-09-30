@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             MenuPanel = new Panel();
+            panel1 = new Panel();
             panel11 = new Panel();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -63,6 +64,7 @@
             HeaderPanel = new Panel();
             panel3 = new Panel();
             MenuPanel.SuspendLayout();
+            panel1.SuspendLayout();
             panel11.SuspendLayout();
             panel12.SuspendLayout();
             panel6.SuspendLayout();
@@ -81,9 +83,7 @@
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.FromArgb(8, 30, 43);
-            MenuPanel.Controls.Add(panel11);
-            MenuPanel.Controls.Add(panel6);
-            MenuPanel.Controls.Add(panel5);
+            MenuPanel.Controls.Add(panel1);
             MenuPanel.Controls.Add(panel4);
             MenuPanel.Dock = DockStyle.Left;
             MenuPanel.Location = new Point(0, 0);
@@ -93,16 +93,27 @@
             MenuPanel.Size = new Size(250, 908);
             MenuPanel.TabIndex = 2;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(panel11);
+            panel1.Controls.Add(panel6);
+            panel1.Controls.Add(panel5);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 200);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 708);
+            panel1.TabIndex = 1;
+            // 
             // panel11
             // 
             panel11.Controls.Add(iconButton1);
             panel11.Controls.Add(iconButton2);
             panel11.Controls.Add(panel12);
             panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(0, 560);
+            panel11.Location = new Point(0, 360);
             panel11.Name = "panel11";
             panel11.Size = new Size(250, 180);
-            panel11.TabIndex = 3;
+            panel11.TabIndex = 6;
             // 
             // iconButton1
             // 
@@ -118,7 +129,7 @@
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton1.Location = new Point(0, 110);
             iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(20, 0, 40, 0);
+            iconButton1.Padding = new Padding(20, 0, 20, 0);
             iconButton1.Size = new Size(250, 60);
             iconButton1.TabIndex = 4;
             iconButton1.Text = "Текст";
@@ -138,7 +149,7 @@
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton2.Location = new Point(0, 50);
             iconButton2.Name = "iconButton2";
-            iconButton2.Padding = new Padding(20, 0, 20, 0);
+            iconButton2.Padding = new Padding(20, 0, 15, 0);
             iconButton2.Size = new Size(250, 60);
             iconButton2.TabIndex = 3;
             iconButton2.Text = "Аккаунт";
@@ -170,10 +181,10 @@
             panel6.Controls.Add(iconButton3);
             panel6.Controls.Add(panel8);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(0, 380);
+            panel6.Location = new Point(0, 180);
             panel6.Name = "panel6";
             panel6.Size = new Size(250, 180);
-            panel6.TabIndex = 2;
+            panel6.TabIndex = 5;
             // 
             // iconButton4
             // 
@@ -189,7 +200,7 @@
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton4.Location = new Point(0, 110);
             iconButton4.Name = "iconButton4";
-            iconButton4.Padding = new Padding(20, 0, 40, 0);
+            iconButton4.Padding = new Padding(20, 0, 20, 0);
             iconButton4.Size = new Size(250, 60);
             iconButton4.TabIndex = 4;
             iconButton4.Text = "Текст";
@@ -209,7 +220,7 @@
             iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton3.Location = new Point(0, 50);
             iconButton3.Name = "iconButton3";
-            iconButton3.Padding = new Padding(20, 0, 22, 0);
+            iconButton3.Padding = new Padding(20, 0, 10, 0);
             iconButton3.Size = new Size(250, 60);
             iconButton3.TabIndex = 3;
             iconButton3.Text = "Мастера";
@@ -241,10 +252,10 @@
             panel5.Controls.Add(CounselingButton);
             panel5.Controls.Add(panel7);
             panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(0, 200);
+            panel5.Location = new Point(0, 0);
             panel5.Name = "panel5";
             panel5.Size = new Size(250, 180);
-            panel5.TabIndex = 1;
+            panel5.TabIndex = 4;
             // 
             // ReceptionButton
             // 
@@ -260,12 +271,11 @@
             ReceptionButton.ImageAlign = ContentAlignment.MiddleLeft;
             ReceptionButton.Location = new Point(0, 110);
             ReceptionButton.Name = "ReceptionButton";
-            ReceptionButton.Padding = new Padding(20, 0, 40, 0);
+            ReceptionButton.Padding = new Padding(20, 0, 25, 0);
             ReceptionButton.Size = new Size(250, 60);
             ReceptionButton.TabIndex = 2;
             ReceptionButton.Text = "Приём";
             ReceptionButton.UseVisualStyleBackColor = true;
-            ReceptionButton.Click += ReceptionButton_Click;
             // 
             // CounselingButton
             // 
@@ -281,12 +291,11 @@
             CounselingButton.ImageAlign = ContentAlignment.MiddleLeft;
             CounselingButton.Location = new Point(0, 50);
             CounselingButton.Name = "CounselingButton";
-            CounselingButton.Padding = new Padding(20, 0, 35, 0);
+            CounselingButton.Padding = new Padding(20, 0, 15, 0);
             CounselingButton.Size = new Size(250, 60);
             CounselingButton.TabIndex = 1;
             CounselingButton.Text = "Записи";
             CounselingButton.UseVisualStyleBackColor = true;
-            CounselingButton.Click += CounselingButton_Click;
             // 
             // panel7
             // 
@@ -390,7 +399,7 @@
             pictureBox1.Location = new Point(11, 24);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(70, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -497,6 +506,7 @@
             Name = "MainForm";
             Text = "MainForm";
             MenuPanel.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
@@ -521,17 +531,7 @@
         private Panel MenuPanel;
         private Panel MainUniversalPanel;
         private System.Windows.Forms.Timer PanelMenuTimer;
-        private Panel panel6;
-        private Panel panel8;
-        private Panel panel5;
-        private Panel panel7;
         private Panel panel4;
-        private Label label1;
-        private Label label2;
-        private FontAwesome.Sharp.IconButton CounselingButton;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton ReceptionButton;
-        private FontAwesome.Sharp.IconButton iconButton4;
         private Panel ButtonHeaderPanel;
         private Button RollUpButton;
         private Button ReduceButton;
@@ -544,11 +544,22 @@
         private Label PositionLabel;
         private Panel panel10;
         private Button button4;
+        private Panel MainMenuPanelHeader;
+        private Panel panel1;
         private Panel panel11;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private Panel panel12;
         private Label label3;
-        private Panel MainMenuPanelHeader;
+        private Panel panel6;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private Panel panel8;
+        private Label label2;
+        private Panel panel5;
+        private FontAwesome.Sharp.IconButton ReceptionButton;
+        private FontAwesome.Sharp.IconButton CounselingButton;
+        private Panel panel7;
+        private Label label1;
     }
 }
