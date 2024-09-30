@@ -18,7 +18,7 @@ namespace TATU.WinForms
             InitializeComponent();
             this.Text = string.Empty;
             this.ControlBox = false;
-            this.DoubleBuffered = true;
+            this.DoubleBuffered = true; 
         }
 
         private void ActivateButton(object senderBtn, Color color) // Метод активации кнопок
