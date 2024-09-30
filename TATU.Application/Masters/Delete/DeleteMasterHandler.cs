@@ -1,6 +1,4 @@
-﻿using TATU.Application.Masters.Update;
-
-namespace TATU.Application.Masters.Delete
+﻿namespace TATU.Application.Masters.Delete
 {
     public class DeleteMasterHandler
     {
