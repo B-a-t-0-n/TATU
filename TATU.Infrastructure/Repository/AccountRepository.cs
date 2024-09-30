@@ -15,7 +15,9 @@ namespace TATU.Infrastructure.Repository
 
         public async Task CreateAccountManager(Manager manager)
         {
-            await _context.Accounts.AddAsync(manager);
+            await _context.Managers.AddAsync(manager);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<Account> GetById(Guid id)
@@ -48,7 +50,7 @@ namespace TATU.Infrastructure.Repository
 
         public async Task<Guid> Save(Account account)
         {
-            _context.Accounts.Attach(account);
+            _context.Attach(account);
 
             await _context.SaveChangesAsync();
 
@@ -57,7 +59,8 @@ namespace TATU.Infrastructure.Repository
 
         public async Task Delete(Account account)
         {
-            _context.Accounts.Attach(account);
+            _context.Attach(account);
+            _context.Accounts.Remove(account);
 
             await _context.SaveChangesAsync();
         }

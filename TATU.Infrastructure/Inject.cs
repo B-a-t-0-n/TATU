@@ -12,8 +12,7 @@ namespace TATU.Infrastructure
     public static class Inject
     {
         public static IServiceCollection AddInfrastructure(
-            this IServiceCollection services,
-            IConfiguration configuration)
+            this IServiceCollection services)
         {
             services.AddScoped<ApplicationDbContext>();
             services.AddScoped<IAccountRepository, AccountRepository>();
