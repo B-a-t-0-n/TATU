@@ -65,6 +65,43 @@ namespace TATU.Infrastructure.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("TATU.Domain.Master", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDismissed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Patronymic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoAvatarLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotosWorksLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("WorkExperience")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Master");
+                });
+
             modelBuilder.Entity("TATU.Domain.Order", b =>
                 {
                     b.Property<Guid>("Id")
@@ -78,6 +115,9 @@ namespace TATU.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("ManagerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("MasterId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Note")
@@ -94,6 +134,8 @@ namespace TATU.Infrastructure.Migrations
                     b.HasIndex("ClientId");
 
                     b.HasIndex("ManagerId");
+
+                    b.HasIndex("MasterId");
 
                     b.HasIndex("ServicesId");
 
@@ -142,20 +184,24 @@ namespace TATU.Infrastructure.Migrations
             modelBuilder.Entity("TATU.Domain.Order", b =>
                 {
                     b.HasOne("TATU.Domain.Client", "Client")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("TATU.Domain.Manager", "Manager")
+                    b.HasOne("TATU.Domain.Manager", null)
                         .WithMany("Orders")
                         .HasForeignKey("ManagerId");
 
+                    b.HasOne("TATU.Domain.Master", "Master")
+                        .WithMany()
+                        .HasForeignKey("MasterId");
+
                     b.HasOne("TATU.Domain.Services", "Services")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ServicesId");
 
                     b.Navigation("Client");
 
-                    b.Navigation("Manager");
+                    b.Navigation("Master");
 
                     b.Navigation("Services");
                 });
@@ -167,16 +213,6 @@ namespace TATU.Infrastructure.Migrations
                         .HasForeignKey("TATU.Domain.Manager", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TATU.Domain.Client", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TATU.Domain.Services", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("TATU.Domain.Manager", b =>
