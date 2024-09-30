@@ -10,8 +10,4 @@
     <ProjectReference Include="..\TATU.Domain\TATU.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Masters\Create\" />
-  </ItemGroup>
-
 </Project>

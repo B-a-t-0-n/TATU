@@ -14,10 +14,10 @@ namespace TATU.Application.Accounts.Create
             _passwordHasher = passwordHasher;
         }
 
-        public async Task<Guid> Handle(CreateAccountManagerCommand command) 
+        public async Task<Guid> Handle(CreateAccountManagerCommand command)
         {
             var login = command.Login;
-            if(string.IsNullOrWhiteSpace(login))
+            if (string.IsNullOrWhiteSpace(login))
                 throw new ArgumentNullException("login is null or white space");
 
             var password = command.Password;
@@ -40,7 +40,7 @@ namespace TATU.Application.Accounts.Create
                 Login = command.Login,
                 PasswordHash = passwordHash,
                 Name = name,
-                Surname = command.Manager.Surname,
+                Surname = surname,
                 Patronymic = command.Manager.Patronymic,
                 WorkExperience = command.Manager.WorkExperience,
             };
@@ -49,7 +49,5 @@ namespace TATU.Application.Accounts.Create
 
             return manager.Id;
         }
-
-
     }
 }
