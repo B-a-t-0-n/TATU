@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TATU.Infrastructure;
 
@@ -11,9 +12,11 @@ using TATU.Infrastructure;
 namespace TATU.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240927220512_AddMaster")]
+    partial class AddMaster
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,8 +102,7 @@ namespace TATU.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Master");
-
+                    b.ToTable("Masters");
                 });
 
             modelBuilder.Entity("TATU.Domain.Order", b =>
@@ -185,26 +187,24 @@ namespace TATU.Infrastructure.Migrations
             modelBuilder.Entity("TATU.Domain.Order", b =>
                 {
                     b.HasOne("TATU.Domain.Client", "Client")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("TATU.Domain.Manager", null)
+                    b.HasOne("TATU.Domain.Manager", "Manager")
                         .WithMany("Orders")
                         .HasForeignKey("ManagerId");
 
-
-                    b.HasOne("TATU.Domain.Master", "Master")
-                        .WithMany()
-                        
+                    b.HasOne("TATU.Domain.Master", null)
+                        .WithMany("Orders")
                         .HasForeignKey("MasterId");
 
                     b.HasOne("TATU.Domain.Services", "Services")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("ServicesId");
 
                     b.Navigation("Client");
 
-                    b.Navigation("Master");
+                    b.Navigation("Manager");
 
                     b.Navigation("Services");
                 });
@@ -218,6 +218,20 @@ namespace TATU.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TATU.Domain.Client", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("TATU.Domain.Master", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("TATU.Domain.Services", b =>
+                {
+                    b.Navigation("Orders");
+                });
 
             modelBuilder.Entity("TATU.Domain.Manager", b =>
                 {

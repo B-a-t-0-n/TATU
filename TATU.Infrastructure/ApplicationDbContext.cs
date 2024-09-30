@@ -12,6 +12,8 @@ namespace TATU.Infrastructure
         public DbSet<Order> Orders { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Master> Masters { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
