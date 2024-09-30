@@ -99,7 +99,8 @@ namespace TATU.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Masters");
+                    b.ToTable("Master");
+
                 });
 
             modelBuilder.Entity("TATU.Domain.Order", b =>
@@ -184,24 +185,26 @@ namespace TATU.Infrastructure.Migrations
             modelBuilder.Entity("TATU.Domain.Order", b =>
                 {
                     b.HasOne("TATU.Domain.Client", "Client")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("TATU.Domain.Manager", "Manager")
+                    b.HasOne("TATU.Domain.Manager", null)
                         .WithMany("Orders")
                         .HasForeignKey("ManagerId");
 
-                    b.HasOne("TATU.Domain.Master", null)
-                        .WithMany("Orders")
+
+                    b.HasOne("TATU.Domain.Master", "Master")
+                        .WithMany()
+                        
                         .HasForeignKey("MasterId");
 
                     b.HasOne("TATU.Domain.Services", "Services")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ServicesId");
 
                     b.Navigation("Client");
 
-                    b.Navigation("Manager");
+                    b.Navigation("Master");
 
                     b.Navigation("Services");
                 });
@@ -215,20 +218,6 @@ namespace TATU.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TATU.Domain.Client", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TATU.Domain.Master", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TATU.Domain.Services", b =>
-                {
-                    b.Navigation("Orders");
-                });
 
             modelBuilder.Entity("TATU.Domain.Manager", b =>
                 {

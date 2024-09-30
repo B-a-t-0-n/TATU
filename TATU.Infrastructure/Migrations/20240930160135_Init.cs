@@ -39,6 +39,25 @@ namespace TATU.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Master",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Patronymic = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WorkExperience = table.Column<double>(type: "float", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDismissed = table.Column<bool>(type: "bit", nullable: false),
+                    PhotoAvatarLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhotosWorksLink = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Master", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Services",
                 columns: table => new
                 {
@@ -79,9 +98,11 @@ namespace TATU.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServicesId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    MasterId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     DateTimeRecording = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PhotoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Note = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ManagerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -90,6 +111,16 @@ namespace TATU.Infrastructure.Migrations
                         name: "FK_Orders_Clients_ClientId",
                         column: x => x.ClientId,
                         principalTable: "Clients",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Master_MasterId",
+                        column: x => x.MasterId,
+                        principalTable: "Master",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orders_Services_ServicesId",
@@ -104,6 +135,16 @@ namespace TATU.Infrastructure.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_ManagerId",
+                table: "Orders",
+                column: "ManagerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_MasterId",
+                table: "Orders",
+                column: "MasterId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_ServicesId",
                 table: "Orders",
                 column: "ServicesId");
@@ -113,19 +154,22 @@ namespace TATU.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Managers");
-
-            migrationBuilder.DropTable(
                 name: "Orders");
-
-            migrationBuilder.DropTable(
-                name: "Accounts");
 
             migrationBuilder.DropTable(
                 name: "Clients");
 
             migrationBuilder.DropTable(
+                name: "Managers");
+
+            migrationBuilder.DropTable(
+                name: "Master");
+
+            migrationBuilder.DropTable(
                 name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "Accounts");
         }
     }
 }
