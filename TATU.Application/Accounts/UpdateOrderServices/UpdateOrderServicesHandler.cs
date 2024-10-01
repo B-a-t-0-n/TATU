@@ -1,6 +1,4 @@
-﻿using TATU.Application.Accounts.UpdateOrderMaster;
-using TATU.Application.Masters;
-using TATU.Application.Services;
+﻿using TATU.Application.Services;
 using TATU.Domain;
 
 namespace TATU.Application.Accounts.UpdateOrderServices

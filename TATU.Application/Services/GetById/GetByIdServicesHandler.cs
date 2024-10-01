@@ -1,10 +1,10 @@
 ﻿namespace TATU.Application.Services.GetById
 {
-    public class GetByIdlServicesHandler
+    public class GetByIdServicesHandler
     {
         private readonly IServicesRepository _servicesRepository;
 
-        public GetByIdlServicesHandler(IServicesRepository servicesRepository)
+        public GetByIdServicesHandler(IServicesRepository servicesRepository)
         {
             _servicesRepository = servicesRepository;
         }

@@ -1,5 +1,4 @@
-﻿using TATU.Application.Accounts.Create;
-namespace TATU.Application.Accounts.Delete
+﻿namespace TATU.Application.Accounts.Delete
 {
     public class DeleteAccountHandler
     {
