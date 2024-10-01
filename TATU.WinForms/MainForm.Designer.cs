@@ -54,7 +54,7 @@
             panel10 = new Panel();
             PositionLabel = new Label();
             FIOLabel = new Label();
-            pictureBox1 = new PictureBox();
+            ProfilePicBox = new PictureBox();
             PanelMenuTimer = new System.Windows.Forms.Timer(components);
             ButtonHeaderPanel = new Panel();
             RollUpButton = new Button();
@@ -75,7 +75,7 @@
             MainMenuPanelHeader.SuspendLayout();
             panel9.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProfilePicBox).BeginInit();
             ButtonHeaderPanel.SuspendLayout();
             Header.SuspendLayout();
             SuspendLayout();
@@ -355,7 +355,7 @@
             // panel9
             // 
             panel9.Controls.Add(panel10);
-            panel9.Controls.Add(pictureBox1);
+            panel9.Controls.Add(ProfilePicBox);
             panel9.Dock = DockStyle.Bottom;
             panel9.Location = new Point(0, 80);
             panel9.Name = "panel9";
@@ -395,15 +395,15 @@
             FIOLabel.TabIndex = 1;
             FIOLabel.Text = "ФИО";
             // 
-            // pictureBox1
+            // ProfilePicBox
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(11, 24);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            ProfilePicBox.Image = (Image)resources.GetObject("ProfilePicBox.Image");
+            ProfilePicBox.Location = new Point(11, 24);
+            ProfilePicBox.Name = "ProfilePicBox";
+            ProfilePicBox.Size = new Size(70, 70);
+            ProfilePicBox.SizeMode = PictureBoxSizeMode.Zoom;
+            ProfilePicBox.TabIndex = 0;
+            ProfilePicBox.TabStop = false;
             // 
             // PanelMenuTimer
             // 
@@ -525,7 +525,7 @@
             panel9.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProfilePicBox).EndInit();
             ButtonHeaderPanel.ResumeLayout(false);
             Header.ResumeLayout(false);
             ResumeLayout(false);
@@ -537,7 +537,7 @@
         private Panel panel4;
         private Panel panel9;
         private Label FIOLabel;
-        private PictureBox pictureBox1;
+        private PictureBox ProfilePicBox;
         private Label PositionLabel;
         private Panel panel10;
         private Button button4;

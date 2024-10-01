@@ -13,10 +13,20 @@ namespace TATU.WinForms
         private bool MouseClickSee = false;
         bool drag = false;
         Point start_point = new Point(0, 0);
+
         public MainForm()
         {
             InitializeComponent();
             sidebarExpand = true;
+            this.Load += new EventHandler(MainForm_Load);
+        }
+        void MainForm_Load(object sender, EventArgs e)
+        {
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddEllipse(0, 0, 70, 70);
+            Region rgn = new Region(path);
+            ProfilePicBox.Region = rgn;
+            ProfilePicBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
         private void ActivateButton(object senderBtn, Color color) // Метод активации кнопок
@@ -116,10 +126,7 @@ namespace TATU.WinForms
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-           // Application.Exit();  // Ошибка - главная форма
-           /////
-           ///////
-           ///////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            System.Windows.Forms.Application.Exit();
         }
 
         // Методы для управления формой
