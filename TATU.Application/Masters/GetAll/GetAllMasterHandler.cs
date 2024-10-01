@@ -15,7 +15,7 @@ namespace TATU.Application.Masters.GetAll
         {
             var masters = await _masterRepository.GetAll();
 
-            return masters;
+            return masters.ToList();
         }
     }
 }

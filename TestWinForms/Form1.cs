@@ -21,6 +21,8 @@ namespace TestWinForms
 
             var id = await _createAccountManagerHandler.Handle(createManagerCommand);
             MessageBox.Show(id.ToString());
+
+            Application.Exit();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace TATU.Application.Masters
     {
         Task Create(Master manager);
         Task<Master> GetById(Guid id);
-        Task<List<Master>> GetAll();
+        Task<IEnumerable<Master>> GetAll();
         Task<Guid> Save(Master master);
         Task Delete(Master master);
     }

@@ -15,7 +15,7 @@ namespace TATU.Application.Accounts.GetAll
         {
             var accounts = await _accountRepository.GetAll();
 
-            return accounts;
+            return accounts.ToList();
         }
     }
 }
