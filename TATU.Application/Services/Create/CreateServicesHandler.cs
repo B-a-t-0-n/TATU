@@ -1,8 +1,4 @@
-﻿using TATU.Application.Masters.Create;
-using TATU.Application.Masters;
-using TATU.Domain;
-
-namespace TATU.Application.Services.Create
+﻿namespace TATU.Application.Services.Create
 {
     public class CreateServicesHandler
     {

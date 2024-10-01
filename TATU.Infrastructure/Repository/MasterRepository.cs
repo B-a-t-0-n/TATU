@@ -39,6 +39,7 @@ namespace TATU.Infrastructure.Repository
         public async Task Delete(Master master)
         {
             _context.Masters.Attach(master);
+            _context.Masters.Remove(master);
 
             await _context.SaveChangesAsync();
         }

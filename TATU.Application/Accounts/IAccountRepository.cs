@@ -6,6 +6,7 @@ namespace TATU.Application.Accounts
     {
         Task CreateAccountManager(Manager manager);
         Task<Account> GetById(Guid id);
+        Task<List<Account>> GetAll();
         Task<Guid> Save(Account account);
         Task Delete(Account account);
     }
