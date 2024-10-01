@@ -10,7 +10,7 @@
         public string? Description { get; set; } = default!;
         public bool IsDismissed { get; set; } = false;
         public string? PhotoAvatarLink { get; set; }
-        public IEnumerable<string>? PhotosWorksLink { get; set; }
-
+        public string? PhotosWorksLink { get; set; }
+        public IList<Order>? Orders { get; set; }
     }
 }

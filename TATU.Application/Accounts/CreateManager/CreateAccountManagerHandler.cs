@@ -34,6 +34,11 @@ namespace TATU.Application.Accounts.Create
             if (string.IsNullOrWhiteSpace(surname))
                 throw new ArgumentNullException("Manager.surname is null or white space");
 
+            var accounts = await _accountRepository.GetAll();
+
+            if (accounts.Any(a => a.Login == login))
+                throw new Exception("the login is busy");
+
             var manager = new Manager()
             {
                 Id = Guid.NewGuid(),

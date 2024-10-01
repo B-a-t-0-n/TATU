@@ -12,8 +12,8 @@ using TATU.Infrastructure;
 namespace TATU.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240927220512_AddMaster")]
-    partial class AddMaster
+    [Migration("20241001222915_AAAAAAA")]
+    partial class AAAAAAA
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -194,7 +194,7 @@ namespace TATU.Infrastructure.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("ManagerId");
 
-                    b.HasOne("TATU.Domain.Master", null)
+                    b.HasOne("TATU.Domain.Master", "Master")
                         .WithMany("Orders")
                         .HasForeignKey("MasterId");
 
@@ -205,6 +205,8 @@ namespace TATU.Infrastructure.Migrations
                     b.Navigation("Client");
 
                     b.Navigation("Manager");
+
+                    b.Navigation("Master");
 
                     b.Navigation("Services");
                 });

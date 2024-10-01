@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TATU.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class AAAAAAA : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,7 +39,7 @@ namespace TATU.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Master",
+                name: "Masters",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -54,7 +54,7 @@ namespace TATU.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Master", x => x.Id);
+                    table.PrimaryKey("PK_Masters", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,9 +118,9 @@ namespace TATU.Infrastructure.Migrations
                         principalTable: "Managers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Orders_Master_MasterId",
+                        name: "FK_Orders_Masters_MasterId",
                         column: x => x.MasterId,
-                        principalTable: "Master",
+                        principalTable: "Masters",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orders_Services_ServicesId",
@@ -163,7 +163,7 @@ namespace TATU.Infrastructure.Migrations
                 name: "Managers");
 
             migrationBuilder.DropTable(
-                name: "Master");
+                name: "Masters");
 
             migrationBuilder.DropTable(
                 name: "Services");

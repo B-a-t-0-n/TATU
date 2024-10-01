@@ -99,8 +99,7 @@ namespace TATU.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Master");
-
+                    b.ToTable("Masters");
                 });
 
             modelBuilder.Entity("TATU.Domain.Order", b =>
@@ -185,24 +184,24 @@ namespace TATU.Infrastructure.Migrations
             modelBuilder.Entity("TATU.Domain.Order", b =>
                 {
                     b.HasOne("TATU.Domain.Client", "Client")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("TATU.Domain.Manager", null)
+                    b.HasOne("TATU.Domain.Manager", "Manager")
                         .WithMany("Orders")
                         .HasForeignKey("ManagerId");
 
-
                     b.HasOne("TATU.Domain.Master", "Master")
-                        .WithMany()
-                        
+                        .WithMany("Orders")
                         .HasForeignKey("MasterId");
 
                     b.HasOne("TATU.Domain.Services", "Services")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("ServicesId");
 
                     b.Navigation("Client");
+
+                    b.Navigation("Manager");
 
                     b.Navigation("Master");
 
@@ -218,6 +217,20 @@ namespace TATU.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TATU.Domain.Client", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("TATU.Domain.Master", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("TATU.Domain.Services", b =>
+                {
+                    b.Navigation("Orders");
+                });
 
             modelBuilder.Entity("TATU.Domain.Manager", b =>
                 {

@@ -9,6 +9,6 @@ namespace TATU.Application.DTO
         string? Description,
         bool IsDismissed,
         string? PhotoAvatarLink,
-        IEnumerable<string>? PhotosWorksLink);
+        string? PhotosWorksLink);
     
 }

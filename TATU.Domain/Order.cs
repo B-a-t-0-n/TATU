@@ -9,5 +9,6 @@
         public DateTime DateTimeRecording { get; set; }
         public string? PhotoLink { get; set; }
         public string? Note { get; set; }
+        public Manager? Manager { get; set; }
     }
 }
