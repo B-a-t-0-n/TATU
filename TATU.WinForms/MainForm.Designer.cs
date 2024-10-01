@@ -55,14 +55,14 @@
             PositionLabel = new Label();
             FIOLabel = new Label();
             pictureBox1 = new PictureBox();
-            MainUniversalPanel = new Panel();
             PanelMenuTimer = new System.Windows.Forms.Timer(components);
             ButtonHeaderPanel = new Panel();
             RollUpButton = new Button();
             ReduceButton = new Button();
             CloseButton = new Button();
-            HeaderPanel = new Panel();
+            Header = new Panel();
             panel3 = new Panel();
+            MainUniversalPanel = new Panel();
             MenuPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel11.SuspendLayout();
@@ -77,7 +77,7 @@
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ButtonHeaderPanel.SuspendLayout();
-            HeaderPanel.SuspendLayout();
+            Header.SuspendLayout();
             SuspendLayout();
             // 
             // MenuPanel
@@ -86,11 +86,11 @@
             MenuPanel.Controls.Add(panel1);
             MenuPanel.Controls.Add(panel4);
             MenuPanel.Dock = DockStyle.Left;
-            MenuPanel.Location = new Point(0, 0);
+            MenuPanel.Location = new Point(2, 2);
             MenuPanel.MaximumSize = new Size(250, 0);
             MenuPanel.MinimumSize = new Size(90, 0);
             MenuPanel.Name = "MenuPanel";
-            MenuPanel.Size = new Size(250, 908);
+            MenuPanel.Size = new Size(250, 904);
             MenuPanel.TabIndex = 2;
             // 
             // panel1
@@ -101,7 +101,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 200);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 708);
+            panel1.Size = new Size(250, 704);
             panel1.TabIndex = 1;
             // 
             // panel11
@@ -405,14 +405,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // MainUniversalPanel
-            // 
-            MainUniversalPanel.Dock = DockStyle.Fill;
-            MainUniversalPanel.Location = new Point(250, 50);
-            MainUniversalPanel.Name = "MainUniversalPanel";
-            MainUniversalPanel.Size = new Size(1366, 858);
-            MainUniversalPanel.TabIndex = 5;
-            // 
             // PanelMenuTimer
             // 
             PanelMenuTimer.Interval = 10;
@@ -420,13 +412,13 @@
             // 
             // ButtonHeaderPanel
             // 
-            ButtonHeaderPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ButtonHeaderPanel.Controls.Add(RollUpButton);
             ButtonHeaderPanel.Controls.Add(ReduceButton);
             ButtonHeaderPanel.Controls.Add(CloseButton);
-            ButtonHeaderPanel.Location = new Point(1210, 0);
+            ButtonHeaderPanel.Dock = DockStyle.Right;
+            ButtonHeaderPanel.Location = new Point(1206, 0);
             ButtonHeaderPanel.Name = "ButtonHeaderPanel";
-            ButtonHeaderPanel.Size = new Size(156, 48);
+            ButtonHeaderPanel.Size = new Size(156, 46);
             ButtonHeaderPanel.TabIndex = 0;
             // 
             // RollUpButton
@@ -438,7 +430,7 @@
             RollUpButton.ForeColor = Color.White;
             RollUpButton.Location = new Point(6, 0);
             RollUpButton.Name = "RollUpButton";
-            RollUpButton.Size = new Size(50, 48);
+            RollUpButton.Size = new Size(50, 46);
             RollUpButton.TabIndex = 5;
             RollUpButton.Text = "○";
             RollUpButton.UseVisualStyleBackColor = true;
@@ -453,7 +445,7 @@
             ReduceButton.ForeColor = Color.White;
             ReduceButton.Location = new Point(56, 0);
             ReduceButton.Name = "ReduceButton";
-            ReduceButton.Size = new Size(50, 48);
+            ReduceButton.Size = new Size(50, 46);
             ReduceButton.TabIndex = 4;
             ReduceButton.Text = "○";
             ReduceButton.UseVisualStyleBackColor = true;
@@ -468,33 +460,41 @@
             CloseButton.ForeColor = Color.White;
             CloseButton.Location = new Point(106, 0);
             CloseButton.Name = "CloseButton";
-            CloseButton.Size = new Size(50, 48);
+            CloseButton.Size = new Size(50, 46);
             CloseButton.TabIndex = 3;
             CloseButton.Text = "○";
             CloseButton.UseVisualStyleBackColor = true;
             CloseButton.Click += CloseButton_Click;
             // 
-            // HeaderPanel
+            // Header
             // 
-            HeaderPanel.BackColor = Color.FromArgb(9, 36, 52);
-            HeaderPanel.Controls.Add(ButtonHeaderPanel);
-            HeaderPanel.Dock = DockStyle.Top;
-            HeaderPanel.ForeColor = SystemColors.ButtonHighlight;
-            HeaderPanel.Location = new Point(250, 0);
-            HeaderPanel.Name = "HeaderPanel";
-            HeaderPanel.Size = new Size(1366, 46);
-            HeaderPanel.TabIndex = 4;
-            HeaderPanel.MouseDoubleClick += HeaderPanel_MouseDoubleClick_1;
-            HeaderPanel.MouseDown += HeaderPanel_MouseDown;
+            Header.BackColor = Color.FromArgb(9, 36, 52);
+            Header.Controls.Add(ButtonHeaderPanel);
+            Header.Dock = DockStyle.Top;
+            Header.ForeColor = SystemColors.ButtonHighlight;
+            Header.Location = new Point(252, 2);
+            Header.Name = "Header";
+            Header.Size = new Size(1362, 46);
+            Header.TabIndex = 10;
+            Header.MouseDoubleClick += Header_MouseDoubleClick;
+            Header.MouseDown += Header_MouseDown;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(3, 135, 126);
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(250, 46);
+            panel3.Location = new Point(252, 48);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1366, 4);
-            panel3.TabIndex = 6;
+            panel3.Size = new Size(1362, 4);
+            panel3.TabIndex = 11;
+            // 
+            // MainUniversalPanel
+            // 
+            MainUniversalPanel.Dock = DockStyle.Fill;
+            MainUniversalPanel.Location = new Point(252, 52);
+            MainUniversalPanel.Name = "MainUniversalPanel";
+            MainUniversalPanel.Size = new Size(1362, 854);
+            MainUniversalPanel.TabIndex = 12;
             // 
             // MainForm
             // 
@@ -504,11 +504,11 @@
             ClientSize = new Size(1616, 908);
             Controls.Add(MainUniversalPanel);
             Controls.Add(panel3);
-            Controls.Add(HeaderPanel);
+            Controls.Add(Header);
             Controls.Add(MenuPanel);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "MainForm";
+            MouseDown += Header_MouseDown;
             MenuPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel11.ResumeLayout(false);
@@ -527,21 +527,14 @@
             panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ButtonHeaderPanel.ResumeLayout(false);
-            HeaderPanel.ResumeLayout(false);
+            Header.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private Panel MenuPanel;
-        private Panel MainUniversalPanel;
         private System.Windows.Forms.Timer PanelMenuTimer;
         private Panel panel4;
-        private Panel ButtonHeaderPanel;
-        private Button RollUpButton;
-        private Button ReduceButton;
-        private Button CloseButton;
-        private Panel HeaderPanel;
-        private Panel panel3;
         private Panel panel9;
         private Label FIOLabel;
         private PictureBox pictureBox1;
@@ -565,5 +558,12 @@
         private FontAwesome.Sharp.IconButton CounselingButton;
         private Panel panel7;
         private Label label1;
+        private Panel ButtonHeaderPanel;
+        private Button RollUpButton;
+        private Button ReduceButton;
+        private Button CloseButton;
+        private Panel Header;
+        private Panel panel3;
+        private Panel MainUniversalPanel;
     }
 }

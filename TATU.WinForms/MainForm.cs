@@ -10,15 +10,12 @@ namespace TATU.WinForms
         bool sidebarExpand;
         private IconButton currentBtn;
         private Form activeForm;
-
+        private bool MouseClickSee = false;
         bool drag = false;
         Point start_point = new Point(0, 0);
         public MainForm()
         {
             InitializeComponent();
-            this.Text = string.Empty;
-            this.ControlBox = false;
-            this.DoubleBuffered = true;
             sidebarExpand = true;
         }
 
@@ -103,7 +100,6 @@ namespace TATU.WinForms
         private void button4_Click(object sender, EventArgs e)
         {
             PanelMenuTimer.Start();
-
         }
 
         private void RollUpButton_Click(object sender, EventArgs e)
@@ -115,12 +111,12 @@ namespace TATU.WinForms
         {
             if (this.WindowState != FormWindowState.Maximized)
                 this.WindowState = FormWindowState.Maximized;
-            else this .WindowState = FormWindowState.Normal;
+            else this.WindowState = FormWindowState.Normal;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         // Методы для управления формой
@@ -131,23 +127,29 @@ namespace TATU.WinForms
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
         private void MainMenuPanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        private void HeaderPanel_MouseDoubleClick_1(object sender, MouseEventArgs e)
+
+        private void Header_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
+            if (this.WindowState == FormWindowState.Normal)
+               { this.WindowState = FormWindowState.Maximized;}
+            else this.WindowState = FormWindowState.Normal;
+
+        }
+        private void Header_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Clicks == 1)
+            {
+                MouseClickSee = false;
+                ReleaseCapture();
+                SendMessage(this.Handle, 0x112, 0xf012, 0);
+            }
+            else 
+            { MouseClickSee = true; }
         }
     }
 }
