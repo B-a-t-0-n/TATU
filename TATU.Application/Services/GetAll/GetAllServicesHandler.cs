@@ -1,7 +1,4 @@
-﻿using TATU.Application.Masters;
-using TATU.Domain;
-
-namespace TATU.Application.Services.GetAll
+﻿namespace TATU.Application.Services.GetAll
 {
     public class GetAllServicesHandler
     {
