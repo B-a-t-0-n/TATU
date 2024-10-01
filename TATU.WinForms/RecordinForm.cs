@@ -17,6 +17,14 @@ namespace TATU.WinForms
             InitializeComponent();
         }
 
-        
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

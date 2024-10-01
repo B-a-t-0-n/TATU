@@ -31,11 +31,19 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             NavigationPanel = new Panel();
-            SearchButton = new FontAwesome.Sharp.IconButton();
-            PanelUpAdd = new Panel();
-            AddButton = new Button();
-            UpdateButton = new Button();
+            panel5 = new Panel();
+            panel15 = new Panel();
+            button3 = new Button();
+            panel16 = new Panel();
+            button4 = new Button();
+            panel17 = new Panel();
+            panel12 = new Panel();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            panel13 = new Panel();
             textBox1 = new TextBox();
+            panel14 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
             panel1 = new Panel();
             panel2 = new Panel();
             dataGridView1 = new DataGridView();
@@ -45,102 +53,182 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            panel3 = new Panel();
             NavigationPanel.SuspendLayout();
-            PanelUpAdd.SuspendLayout();
+            panel5.SuspendLayout();
+            panel15.SuspendLayout();
+            panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // NavigationPanel
             // 
+            NavigationPanel.Controls.Add(panel5);
+            NavigationPanel.Controls.Add(panel4);
             NavigationPanel.Controls.Add(panel3);
-            NavigationPanel.Controls.Add(PanelUpAdd);
             NavigationPanel.Dock = DockStyle.Top;
             NavigationPanel.Location = new Point(0, 0);
             NavigationPanel.Name = "NavigationPanel";
             NavigationPanel.Size = new Size(1089, 100);
             NavigationPanel.TabIndex = 1;
             // 
-            // SearchButton
+            // panel5
             // 
-            SearchButton.FlatAppearance.BorderSize = 0;
-            SearchButton.FlatStyle = FlatStyle.Flat;
-            SearchButton.ForeColor = Color.White;
-            SearchButton.IconChar = FontAwesome.Sharp.IconChar.Search;
-            SearchButton.IconColor = Color.White;
-            SearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            SearchButton.IconSize = 36;
-            SearchButton.Location = new Point(107, 46);
-            SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(40, 40);
-            SearchButton.TabIndex = 1;
-            SearchButton.UseVisualStyleBackColor = true;
+            panel5.Controls.Add(panel15);
+            panel5.Controls.Add(panel12);
+            panel5.Dock = DockStyle.Fill;
+            panel5.Location = new Point(0, 27);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(1089, 41);
+            panel5.TabIndex = 7;
+            panel5.Paint += panel5_Paint;
             // 
-            // PanelUpAdd
+            // panel15
             // 
-            PanelUpAdd.Controls.Add(AddButton);
-            PanelUpAdd.Controls.Add(SearchButton);
-            PanelUpAdd.Controls.Add(UpdateButton);
-            PanelUpAdd.Controls.Add(textBox1);
-            PanelUpAdd.Dock = DockStyle.Right;
-            PanelUpAdd.Location = new Point(789, 0);
-            PanelUpAdd.Name = "PanelUpAdd";
-            PanelUpAdd.Size = new Size(300, 100);
-            PanelUpAdd.TabIndex = 3;
+            panel15.Controls.Add(button3);
+            panel15.Controls.Add(panel16);
+            panel15.Controls.Add(button4);
+            panel15.Controls.Add(panel17);
+            panel15.Dock = DockStyle.Right;
+            panel15.Location = new Point(827, 0);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(262, 41);
+            panel15.TabIndex = 10;
             // 
-            // AddButton
+            // button3
             // 
-            AddButton.BackColor = Color.FromArgb(3, 135, 126);
-            AddButton.FlatAppearance.BorderSize = 0;
-            AddButton.FlatStyle = FlatStyle.Flat;
-            AddButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            AddButton.ForeColor = Color.FromArgb(9, 36, 52);
-            AddButton.Location = new Point(166, 30);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(100, 44);
-            AddButton.TabIndex = 3;
-            AddButton.Text = "Добавить";
-            AddButton.UseVisualStyleBackColor = false;
+            button3.Dock = DockStyle.Right;
+            button3.FlatAppearance.BorderSize = 2;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            button3.ForeColor = Color.FromArgb(3, 135, 126);
+            button3.Location = new Point(12, 0);
+            button3.Name = "button3";
+            button3.Size = new Size(100, 41);
+            button3.TabIndex = 8;
+            button3.Text = "Обновить";
+            button3.UseVisualStyleBackColor = true;
             // 
-            // UpdateButton
+            // panel16
             // 
-            UpdateButton.FlatAppearance.BorderSize = 2;
-            UpdateButton.FlatStyle = FlatStyle.Flat;
-            UpdateButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            UpdateButton.ForeColor = Color.FromArgb(3, 135, 126);
-            UpdateButton.Location = new Point(38, 30);
-            UpdateButton.Name = "UpdateButton";
-            UpdateButton.Size = new Size(100, 44);
-            UpdateButton.TabIndex = 2;
-            UpdateButton.Text = "Обновить";
-            UpdateButton.UseVisualStyleBackColor = true;
+            panel16.Dock = DockStyle.Right;
+            panel16.Location = new Point(112, 0);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(20, 41);
+            panel16.TabIndex = 7;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(3, 135, 126);
+            button4.Dock = DockStyle.Right;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            button4.ForeColor = Color.FromArgb(9, 36, 52);
+            button4.Location = new Point(132, 0);
+            button4.Margin = new Padding(3, 30, 3, 30);
+            button4.MaximumSize = new Size(100, 44);
+            button4.MinimumSize = new Size(100, 44);
+            button4.Name = "button4";
+            button4.Size = new Size(100, 44);
+            button4.TabIndex = 6;
+            button4.Text = "Добавить";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // panel17
+            // 
+            panel17.Dock = DockStyle.Right;
+            panel17.Location = new Point(232, 0);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(30, 41);
+            panel17.TabIndex = 5;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(iconButton2);
+            panel12.Controls.Add(panel13);
+            panel12.Controls.Add(textBox1);
+            panel12.Controls.Add(panel14);
+            panel12.Dock = DockStyle.Left;
+            panel12.Location = new Point(0, 0);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(544, 41);
+            panel12.TabIndex = 9;
+            // 
+            // iconButton2
+            // 
+            iconButton2.Dock = DockStyle.Left;
+            iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.ForeColor = Color.White;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Search;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 36;
+            iconButton2.Location = new Point(401, 0);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(41, 41);
+            iconButton2.TabIndex = 15;
+            iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            panel13.Dock = DockStyle.Left;
+            panel13.Location = new Point(390, 0);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(11, 41);
+            panel13.TabIndex = 14;
             // 
             // textBox1
             // 
             textBox1.BackColor = Color.FromArgb(9, 36, 52);
+            textBox1.Dock = DockStyle.Left;
             textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(-268, 46);
+            textBox1.Location = new Point(30, 0);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(360, 40);
-            textBox1.TabIndex = 0;
+            textBox1.Size = new Size(360, 41);
+            textBox1.TabIndex = 13;
+            // 
+            // panel14
+            // 
+            panel14.Dock = DockStyle.Left;
+            panel14.Location = new Point(0, 0);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(30, 41);
+            panel14.TabIndex = 8;
+            // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new Point(0, 68);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1089, 32);
+            panel4.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1089, 27);
+            panel3.TabIndex = 4;
             // 
             // panel1
             // 
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 100);
             panel1.Name = "panel1";
-            panel1.Size = new Size(26, 507);
-            panel1.TabIndex = 9;
+            panel1.Size = new Size(30, 507);
+            panel1.TabIndex = 10;
             // 
             // panel2
             // 
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1063, 100);
+            panel2.Location = new Point(1059, 100);
             panel2.Name = "panel2";
-            panel2.Size = new Size(26, 507);
-            panel2.TabIndex = 10;
+            panel2.Size = new Size(30, 507);
+            panel2.TabIndex = 11;
             // 
             // dataGridView1
             // 
@@ -162,7 +250,7 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.DarkGray;
-            dataGridView1.Location = new Point(26, 100);
+            dataGridView1.Location = new Point(30, 100);
             dataGridView1.Margin = new Padding(20);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -174,8 +262,8 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1037, 507);
-            dataGridView1.TabIndex = 9;
+            dataGridView1.Size = new Size(1029, 507);
+            dataGridView1.TabIndex = 12;
             // 
             // Column1
             // 
@@ -213,13 +301,6 @@
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             // 
-            // panel3
-            // 
-            panel3.Location = new Point(23, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(250, 155);
-            panel3.TabIndex = 4;
-            // 
             // RecordinForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -233,19 +314,29 @@
             Name = "RecordinForm";
             Text = "RecordinForm";
             NavigationPanel.ResumeLayout(false);
-            PanelUpAdd.ResumeLayout(false);
-            PanelUpAdd.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel15.ResumeLayout(false);
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private Panel NavigationPanel;
+        private Panel panel5;
+        private Panel panel4;
+        private Panel panel3;
+        private Panel panel15;
+        private Button button3;
+        private Panel panel16;
+        private Button button4;
+        private Panel panel17;
+        private Panel panel12;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private Panel panel13;
         private TextBox textBox1;
-        private FontAwesome.Sharp.IconButton SearchButton;
-        private Button UpdateButton;
-        private Panel PanelUpAdd;
-        private Button AddButton;
+        private Panel panel14;
         private Panel panel1;
         private Panel panel2;
         private DataGridView dataGridView1;
@@ -255,6 +346,5 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
-        private Panel panel3;
     }
 }

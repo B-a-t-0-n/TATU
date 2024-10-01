@@ -5,7 +5,7 @@ using Color = System.Drawing.Color;
 
 namespace TATU.WinForms
 {
-    public partial class MainForm : Form
+    public partial class MainForm : FormControl
     {
         bool sidebarExpand;
         private IconButton currentBtn;
@@ -83,16 +83,17 @@ namespace TATU.WinForms
             childForm.Show();
         }
 
-        private void CounselingButton_Click(object sender, EventArgs e)
+        private void CounselingButton_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
             OpenForm(new RecordinForm(), sender);
         }
 
-        private void ReceptionButton_Click(object sender, EventArgs e)
+        private void ReceptionButton_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
         }
+
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -107,17 +108,19 @@ namespace TATU.WinForms
 
         private void RollUpButton_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void ReduceButton_Click(object sender, EventArgs e)
         {
-
+            if (this.WindowState != FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Maximized;
+            else this .WindowState = FormWindowState.Normal;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         // Методы для управления формой
@@ -138,6 +141,13 @@ namespace TATU.WinForms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void HeaderPanel_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
         }
     }
 }

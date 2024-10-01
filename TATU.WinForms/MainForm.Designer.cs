@@ -169,11 +169,11 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(12, 15);
+            label3.Location = new Point(5, 13);
             label3.Name = "label3";
-            label3.Size = new Size(93, 20);
+            label3.Size = new Size(86, 20);
             label3.TabIndex = 1;
-            label3.Text = "Параметры";
+            label3.Text = "Настройки";
             // 
             // panel6
             // 
@@ -240,11 +240,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(12, 15);
+            label2.Location = new Point(6, 15);
             label2.Name = "label2";
-            label2.Size = new Size(94, 20);
+            label2.Size = new Size(79, 20);
             label2.TabIndex = 1;
-            label2.Text = "Сотрудники";
+            label2.Text = "Персонал";
             // 
             // panel5
             // 
@@ -276,6 +276,7 @@
             ReceptionButton.TabIndex = 2;
             ReceptionButton.Text = "Приём";
             ReceptionButton.UseVisualStyleBackColor = true;
+            ReceptionButton.Click += ReceptionButton_Click_1;
             // 
             // CounselingButton
             // 
@@ -296,6 +297,7 @@
             CounselingButton.TabIndex = 1;
             CounselingButton.Text = "Записи";
             CounselingButton.UseVisualStyleBackColor = true;
+            CounselingButton.Click += CounselingButton_Click_1;
             // 
             // panel7
             // 
@@ -311,7 +313,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 14);
+            label1.Location = new Point(6, 14);
             label1.Name = "label1";
             label1.Size = new Size(79, 20);
             label1.TabIndex = 0;
@@ -482,6 +484,7 @@
             HeaderPanel.Name = "HeaderPanel";
             HeaderPanel.Size = new Size(1366, 46);
             HeaderPanel.TabIndex = 4;
+            HeaderPanel.MouseDoubleClick += HeaderPanel_MouseDoubleClick_1;
             HeaderPanel.MouseDown += HeaderPanel_MouseDown;
             // 
             // panel3
@@ -503,6 +506,7 @@
             Controls.Add(panel3);
             Controls.Add(HeaderPanel);
             Controls.Add(MenuPanel);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "MainForm";
             MenuPanel.ResumeLayout(false);
