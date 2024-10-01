@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-
+using System.Threading;
 namespace TATU.WinForms
 {
     public partial class LoginForm : Form
@@ -8,12 +8,13 @@ namespace TATU.WinForms
         {
             InitializeComponent();
         }
-
+        Thread transition;
         private void SingInButton_Click(object sender, EventArgs e) // Переход на глав форму
         {
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
-
+            this.Close();
+            transition = new Thread(open);
+            transition.SetApartmentState(ApartmentState.STA);
+            transition.Start();
         }
 
         // Для управления формой
@@ -79,7 +80,6 @@ namespace TATU.WinForms
                 LoginTextBox.ForeColor = Color.White;
             }
         }
-
         private void LoginTextBox_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(LoginTextBox.Text))
@@ -87,6 +87,10 @@ namespace TATU.WinForms
                 LoginTextBox.Text = "Логин";
                 LoginTextBox.ForeColor = Color.White;
             }
+        }
+        private void open(object sender)
+        {
+         //  Application.Run(new MainForm()); 
         }
     }
 }
