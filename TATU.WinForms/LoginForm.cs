@@ -4,17 +4,17 @@ namespace TATU.WinForms
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        public LoginForm()Ы
         {
             InitializeComponent();
         }
-        Thread transition;
+        //Thread transition; //!!!!!!!!!!!!!!!!!!!!!!!!!!!    Ошибка Цыганский способ
         private void SingInButton_Click(object sender, EventArgs e) // Переход на глав форму
         {
-            this.Close();
-            transition = new Thread(open);
-            transition.SetApartmentState(ApartmentState.STA);
-            transition.Start();
+            //this.Close(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!   Ошибка Цыганский способ
+            //transition = new Thread(open);
+            //transition.SetApartmentState(ApartmentState.STA);
+            //transition.Start();
         }
 
         // Для управления формой
@@ -90,7 +90,7 @@ namespace TATU.WinForms
         }
         private void open(object sender)
         {
-         //  Application.Run(new MainForm()); 
+          //!!!!!!!!!!!!!!!!!!!!!!!!!!!  Application.Run(new MainForm());  Ошибка Цыганский способ
         }
     }
 }

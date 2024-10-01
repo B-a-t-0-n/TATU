@@ -116,7 +116,10 @@ namespace TATU.WinForms
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-
+           // Application.Exit();  // Ошибка - главная форма
+           /////
+           ///////
+           ///////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
         // Методы для управления формой
