@@ -11,7 +11,7 @@ namespace TATU.Application.Accounts.UpdateManagerMainInfo
             _accountRepository = accountRepository;
         }
 
-        public async Task<Guid> Handle(UpdateManagerMainInfoCommand command)
+        public async Task<Guid> Handle(UpdateOrderClientCommand command)
         {
             var account = await _accountRepository.GetById(command.ManagerId)
                 ?? throw new ArgumentNullException("account is null");

@@ -2,5 +2,5 @@
 
 namespace TATU.Application.Accounts.UpdateManagerMainInfo
 {
-    public record UpdateManagerMainInfoCommand(Guid ManagerId, ManagerDto Manager);
+    public record UpdateOrderClientCommand(Guid ManagerId, ManagerDto Manager);
 }
