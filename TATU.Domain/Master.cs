@@ -11,6 +11,5 @@
         public bool IsDismissed { get; set; } = false;
         public string? PhotoAvatarLink { get; set; }
         public string? PhotosWorksLink { get; set; }
-        public IList<Order>? Orders { get; set; }
     }
 }

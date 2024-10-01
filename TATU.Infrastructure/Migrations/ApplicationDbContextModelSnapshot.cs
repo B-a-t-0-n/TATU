@@ -184,7 +184,7 @@ namespace TATU.Infrastructure.Migrations
             modelBuilder.Entity("TATU.Domain.Order", b =>
                 {
                     b.HasOne("TATU.Domain.Client", "Client")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ClientId");
 
                     b.HasOne("TATU.Domain.Manager", "Manager")
@@ -192,11 +192,11 @@ namespace TATU.Infrastructure.Migrations
                         .HasForeignKey("ManagerId");
 
                     b.HasOne("TATU.Domain.Master", "Master")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("MasterId");
 
                     b.HasOne("TATU.Domain.Services", "Services")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ServicesId");
 
                     b.Navigation("Client");
@@ -215,21 +215,6 @@ namespace TATU.Infrastructure.Migrations
                         .HasForeignKey("TATU.Domain.Manager", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TATU.Domain.Client", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TATU.Domain.Master", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TATU.Domain.Services", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("TATU.Domain.Manager", b =>
