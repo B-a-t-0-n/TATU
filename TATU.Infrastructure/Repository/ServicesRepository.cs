@@ -43,5 +43,11 @@ namespace TATU.Infrastructure.Repository
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Services>> GetAll()
+        {
+            var services = await _context.Services.ToListAsync();
+            return services;
+        }
     }
 }

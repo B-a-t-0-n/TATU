@@ -48,6 +48,34 @@ namespace TATU.Infrastructure.Repository
             return accountManager!;
         }
 
+        public async Task<IEnumerable<Account>> GetAll()
+        {
+            var orders = _context.Managers.Include(m => m.Orders);
+
+            if (orders == null)
+            {
+                var managersIsNullOrders = await _context.Managers.ToListAsync();
+                if (managersIsNullOrders == null)
+                    return new List<Account>();
+
+                return managersIsNullOrders;
+            }
+
+            var accountsManager = await _context.Managers
+                .Include(m => m.Orders)!
+                .ThenInclude(o => o.Services)
+                .Include(m => m.Orders)!
+                .ThenInclude(o => o.Client)
+                .Include(m => m.Orders)!
+                .ThenInclude(o => o.Master)
+                .ToListAsync();
+
+            if (accountsManager is null)
+                return new List<Account>();
+
+            return accountsManager!;
+        }
+
         public async Task<Guid> Save(Account account)
         {
             _context.Attach(account);

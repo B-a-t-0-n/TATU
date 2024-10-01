@@ -13,7 +13,7 @@
         {
             var services = await _servicesRepository.GetAll();
 
-            return services;
+            return services.ToList();
         }
     }
 }
