@@ -1,4 +1,6 @@
-﻿namespace TATU.Application.Accounts.GetAll
+﻿using TATU.Domain;
+
+namespace TATU.Application.Accounts.GetAll
 {
     public class GetAllAccountHandler
     {
@@ -9,11 +11,11 @@
             _accountRepository = accountRepository;
         }
 
-        public async Task<List<Guid>> Handle()
+        public async Task<List<Account>> Handle()
         {
             var accounts = await _accountRepository.GetAll();
 
-            return accounts.Select(a => a.Id).ToList();
+            return accounts;
         }
     }
 }
