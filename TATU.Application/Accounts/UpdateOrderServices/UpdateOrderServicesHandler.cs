@@ -1,20 +1,22 @@
-﻿using TATU.Application.Masters;
+﻿using TATU.Application.Accounts.UpdateOrderMaster;
+using TATU.Application.Masters;
+using TATU.Application.Services;
 using TATU.Domain;
 
-namespace TATU.Application.Accounts.UpdateOrderMaster
+namespace TATU.Application.Accounts.UpdateOrderServices
 {
-    public class UpdateOrderMasterHandler
+    public class UpdateOrderServicesHandler
     {
         private readonly IAccountRepository _accountRepository;
-        private readonly IMasterRepository _masterRepository;
+        private readonly IServicesRepository _servicesRepository;
 
-        public UpdateOrderMasterHandler(IAccountRepository accountRepository, IMasterRepository masterRepository)
+        public UpdateOrderServicesHandler(IAccountRepository accountRepository, IServicesRepository servicesRepository)
         {
             _accountRepository = accountRepository;
-            _masterRepository = masterRepository;
+            _servicesRepository = servicesRepository;
         }
 
-        public async Task<Guid> Handle(UpdateOrderMasterCommand command)
+        public async Task<Guid> Handle(UpdateOrderServicesCommand command)
         {
             var account = await _accountRepository.GetById(command.ManagerId)
                 ?? throw new ArgumentNullException("manager is null");
@@ -27,10 +29,10 @@ namespace TATU.Application.Accounts.UpdateOrderMaster
             var order = manager!.Orders!.FirstOrDefault(o => o.Id == command.OrderId)
                 ?? throw new ArgumentNullException("order is null");
 
-            var master = await _masterRepository.GetById(command.MasterId) 
-                ?? throw new ArgumentNullException("master is null");
+            var service = await _servicesRepository.GetById(command.ManagerId)
+                ?? throw new ArgumentNullException("service is null");
 
-            order.Master = master;
+            order.Services = service;
 
             await _accountRepository.Save(manager!);
 

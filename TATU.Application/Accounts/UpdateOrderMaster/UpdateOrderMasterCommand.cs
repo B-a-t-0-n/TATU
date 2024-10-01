@@ -1,6 +1,4 @@
-﻿using TATU.Application.DTO;
-
-namespace TATU.Application.Accounts.UpdateOrderMaster
+﻿namespace TATU.Application.Accounts.UpdateOrderMaster
 {
     public record UpdateOrderMasterCommand(Guid ManagerId, Guid OrderId, Guid MasterId);
 }
