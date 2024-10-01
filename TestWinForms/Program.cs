@@ -7,6 +7,8 @@ namespace TestWinForms
 {
     static class Program
     {
+        public static IServiceProvider ServiceProvider { get; private set; } = default!;
+
         [STAThread]
         static void Main()
         {
@@ -19,7 +21,7 @@ namespace TestWinForms
 
             Application.Run(ServiceProvider.GetRequiredService<Form1>());
         }
-        public static IServiceProvider ServiceProvider { get; private set; }
+
         static IHostBuilder CreateHostBuilder()
         {
             return Host.CreateDefaultBuilder()
