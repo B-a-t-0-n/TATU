@@ -34,6 +34,7 @@ namespace TATU.WinForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            Program.textboxCheck = false;
             ServicesAddForm servicesAddForm = new ServicesAddForm();
             servicesAddForm.ShowDialog();
             
@@ -43,6 +44,7 @@ namespace TATU.WinForms
         {
             if (e.RowIndex >= 0)
             {
+                Program.textboxCheck = true;
                 DatagridRows = MasterDatagrid.Rows[e.RowIndex];
                 ServicesAddForm.GetServicesAddForm.ShowDialog();
             }

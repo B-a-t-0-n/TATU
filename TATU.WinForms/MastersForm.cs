@@ -43,15 +43,18 @@ namespace TATU.WinForms
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        {
+        {   
+            Program.textboxCheck = false;
             MasterEditForm masterEditForm = new MasterEditForm();
             masterEditForm.ShowDialog();
+            
         }
 
         private void MasterDatagrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            {
+            {   
+                Program.textboxCheck = true;
                 DatagridRows = MasterDatagrid.Rows[e.RowIndex];
                 MasterEditForm.GetMasterEditForm.ShowDialog();
             }

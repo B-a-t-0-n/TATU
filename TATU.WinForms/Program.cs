@@ -31,5 +31,7 @@ namespace TATU.WinForms
                     services.AddTransient<LoginForm>();
                 });
         }
+
+        public static bool textboxCheck;
     }
 }

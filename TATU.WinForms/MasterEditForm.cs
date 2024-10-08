@@ -91,16 +91,34 @@ namespace TATU.WinForms
 
         private void MasterEditForm_Load(object sender, EventArgs e)
         {
-            IdTextBox.Text = MastersForm.DatagridRows.Cells[0].Value.ToString();
-            IdTextBox.ReadOnly = true;
-            NameTextbox.Text = MastersForm.DatagridRows.Cells[1].Value.ToString();
-            SurnameTextbox.Text = MastersForm.DatagridRows.Cells[2].Value.ToString();
-            PatronymicTextBox.Text = MastersForm.DatagridRows.Cells[3].Value.ToString();
-            WorkExperienceTextBox.Text = MastersForm.DatagridRows.Cells[4].Value.ToString();
-            DescriptionRichTextBox.Text = MastersForm.DatagridRows.Cells[5].Value.ToString();
-            IsDismissedTextbox.Text = MastersForm.DatagridRows.Cells[6].Value.ToString();
-            PhotoAvatarLinkTextBox.Text = MastersForm.DatagridRows.Cells[7].Value.ToString();
-            PhotosWorksLinkTextBox.Text = MastersForm.DatagridRows.Cells[8].Value.ToString();
+            if (Program.textboxCheck == true)
+            {
+                IdTextBox.Text = MastersForm.DatagridRows.Cells[0].Value.ToString();
+                IdTextBox.ReadOnly = true;
+                IdTextBox.BackColor = Color.White;
+                NameTextbox.Text = MastersForm.DatagridRows.Cells[1].Value.ToString();
+                SurnameTextbox.Text = MastersForm.DatagridRows.Cells[2].Value.ToString();
+                PatronymicTextBox.Text = MastersForm.DatagridRows.Cells[3].Value.ToString();
+                WorkExperienceTextBox.Text = MastersForm.DatagridRows.Cells[4].Value.ToString();
+                DescriptionRichTextBox.Text = MastersForm.DatagridRows.Cells[5].Value.ToString();
+                IsDismissedTextbox.Text = MastersForm.DatagridRows.Cells[6].Value.ToString();
+                PhotoAvatarLinkTextBox.Text = MastersForm.DatagridRows.Cells[7].Value.ToString();
+                PhotosWorksLinkTextBox.Text = MastersForm.DatagridRows.Cells[8].Value.ToString();
+            }
+            if (Program.textboxCheck == false)
+            {
+                IdTextBox.Text = "";
+                IdTextBox.ReadOnly = true;
+                IdTextBox.BackColor = Color.FromArgb(9, 36, 52);
+                NameTextbox.Text = "";
+                SurnameTextbox.Text = "";
+                PatronymicTextBox.Text = "";
+                WorkExperienceTextBox.Text = "";
+                DescriptionRichTextBox.Text = "";
+                IsDismissedTextbox.Text = "";
+                PhotoAvatarLinkTextBox.Text = "";
+                PhotosWorksLinkTextBox.Text = "";
+            }
         }
 
         private async void DeleteButton_Click(object sender, EventArgs e)

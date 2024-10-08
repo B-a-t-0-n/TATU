@@ -77,11 +77,21 @@ namespace TATU.WinForms
 
         private void ServicesAddForm_Load(object sender, EventArgs e)
         {
-            IdTextBox.Text = ServicesForm.DatagridRows.Cells[0].Value.ToString();
-            TitleTextBox.Text = ServicesForm.DatagridRows.Cells[1].Value.ToString();
-            DescriptionTextBox.Text = ServicesForm.DatagridRows.Cells[2].Value.ToString();
-            IdTextBox.ReadOnly = true;
-
+            if (Program.textboxCheck == true)
+            {
+                IdTextBox.Text = ServicesForm.DatagridRows.Cells[0].Value.ToString();
+                TitleTextBox.Text = ServicesForm.DatagridRows.Cells[1].Value.ToString();
+                DescriptionTextBox.Text = ServicesForm.DatagridRows.Cells[2].Value.ToString();
+                IdTextBox.ReadOnly = true;
+                IdTextBox.BackColor = Color.White;
+            }
+            if (Program.textboxCheck == false)
+            {
+                IdTextBox.BackColor = Color.FromArgb(9, 36, 52);
+                IdTextBox.ReadOnly = true;
+                TitleTextBox.Text = "";
+                DescriptionTextBox.Text = "";
+            }
         }
         private async void DeleteButton_Click(object sender, EventArgs e)
         {
