@@ -43,6 +43,7 @@
             PatronymicTextBox = new TextBox();
             DescriptionRichTextBox = new RichTextBox();
             SurnameTextbox = new TextBox();
+            UpdateButton = new Button();
             HeaderPanel.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -108,7 +109,7 @@
             AddButton.FlatStyle = FlatStyle.Flat;
             AddButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             AddButton.ForeColor = Color.FromArgb(9, 36, 52);
-            AddButton.Location = new Point(109, 758);
+            AddButton.Location = new Point(61, 758);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(150, 50);
             AddButton.TabIndex = 12;
@@ -119,6 +120,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(9, 36, 52);
+            panel1.Controls.Add(UpdateButton);
             panel1.Controls.Add(IdTextBox);
             panel1.Controls.Add(PhotosWorksLinkTextBox);
             panel1.Controls.Add(DeleteButton);
@@ -166,7 +168,7 @@
             DeleteButton.FlatStyle = FlatStyle.Flat;
             DeleteButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             DeleteButton.ForeColor = Color.FromArgb(9, 36, 52);
-            DeleteButton.Location = new Point(378, 758);
+            DeleteButton.Location = new Point(447, 758);
             DeleteButton.Name = "DeleteButton";
             DeleteButton.Size = new Size(150, 50);
             DeleteButton.TabIndex = 21;
@@ -245,6 +247,21 @@
             SurnameTextbox.Size = new Size(520, 38);
             SurnameTextbox.TabIndex = 13;
             // 
+            // UpdateButton
+            // 
+            UpdateButton.BackColor = Color.FromArgb(3, 135, 126);
+            UpdateButton.FlatAppearance.BorderSize = 0;
+            UpdateButton.FlatStyle = FlatStyle.Flat;
+            UpdateButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            UpdateButton.ForeColor = Color.FromArgb(9, 36, 52);
+            UpdateButton.Location = new Point(257, 758);
+            UpdateButton.Name = "UpdateButton";
+            UpdateButton.Size = new Size(150, 50);
+            UpdateButton.TabIndex = 24;
+            UpdateButton.Text = "Добавить";
+            UpdateButton.UseVisualStyleBackColor = false;
+            UpdateButton.Click += UpdateButton_Click;
+            // 
             // MasterEditForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -281,5 +298,6 @@
         private TextBox IsDismissedTextbox;
         private TextBox PhotosWorksLinkTextBox;
         private TextBox IdTextBox;
+        private Button UpdateButton;
     }
 }

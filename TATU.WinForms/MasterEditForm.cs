@@ -13,6 +13,7 @@ using TATU.Application.Accounts.Create;
 using TATU.Application.DTO;
 using TATU.Application.Masters.Create;
 using TATU.Application.Masters.Delete;
+using TATU.Application.Masters.Update;
 using TATU.Application.Services.Delete;
 
 namespace TATU.WinForms
@@ -111,6 +112,31 @@ namespace TATU.WinForms
             if (deleteMasterHandler == null)
                 MessageBox.Show("сервис не найден");
             var delete = await deleteMasterHandler.Handle(deleteMasterCommand);
+        }
+
+        private async void UpdateButton_Click(object sender, EventArgs e)
+        {
+            var id = Guid.Parse(IdTextBox.Text);
+            var Name = NameTextbox.Text;
+            var Surname = SurnameTextbox.Text;
+            var Patronymic = Convert.ToString(PatronymicTextBox.Text);
+            var WorkExperience = Convert.ToDouble(WorkExperienceTextBox.Text);
+            var Description = DescriptionRichTextBox.Text;
+            var IsDismissed = Convert.ToBoolean(IsDismissedTextbox.Text);
+            var PhotoAvatarLink = PhotoAvatarLinkTextBox.Text;
+            var PhotosWorksLink = PhotosWorksLinkTextBox.Text;
+
+            MasterDto masterDto = new MasterDto(Name, Surname, Patronymic, WorkExperience,
+                Description, IsDismissed, PhotoAvatarLink, PhotosWorksLink);
+
+            UpdateMasterCommand updateMasterCommand = new UpdateMasterCommand(id, masterDto);
+
+            var updateMasterHandler = Program.ServiceProvider.GetService<UpdateMasterHandler>();
+            if (updateMasterHandler == null)
+                MessageBox.Show("Ошибка Х002");
+
+            var masters = await updateMasterHandler.Handle(updateMasterCommand);
+            MessageBox.Show("Данные успешно добавлены");
         }
     }
 }

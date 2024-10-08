@@ -38,6 +38,7 @@
             DescriptionTextBox = new RichTextBox();
             TitleTextBox = new TextBox();
             AddButton = new Button();
+            UpdateButton = new Button();
             HeaderPanel.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -87,6 +88,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(9, 36, 52);
+            panel1.Controls.Add(UpdateButton);
             panel1.Controls.Add(IdTextBox);
             panel1.Controls.Add(DeleteButton);
             panel1.Controls.Add(Add);
@@ -117,7 +119,7 @@
             DeleteButton.FlatStyle = FlatStyle.Flat;
             DeleteButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             DeleteButton.ForeColor = Color.FromArgb(9, 36, 52);
-            DeleteButton.Location = new Point(389, 407);
+            DeleteButton.Location = new Point(439, 407);
             DeleteButton.Name = "DeleteButton";
             DeleteButton.Size = new Size(150, 50);
             DeleteButton.TabIndex = 22;
@@ -132,7 +134,7 @@
             Add.FlatStyle = FlatStyle.Flat;
             Add.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             Add.ForeColor = Color.FromArgb(9, 36, 52);
-            Add.Location = new Point(108, 407);
+            Add.Location = new Point(69, 407);
             Add.Name = "Add";
             Add.Size = new Size(150, 50);
             Add.TabIndex = 18;
@@ -177,6 +179,21 @@
             AddButton.Text = "Добавить";
             AddButton.UseVisualStyleBackColor = false;
             // 
+            // UpdateButton
+            // 
+            UpdateButton.BackColor = Color.FromArgb(3, 135, 126);
+            UpdateButton.FlatAppearance.BorderSize = 0;
+            UpdateButton.FlatStyle = FlatStyle.Flat;
+            UpdateButton.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            UpdateButton.ForeColor = Color.FromArgb(9, 36, 52);
+            UpdateButton.Location = new Point(253, 407);
+            UpdateButton.Name = "UpdateButton";
+            UpdateButton.Size = new Size(150, 50);
+            UpdateButton.TabIndex = 24;
+            UpdateButton.Text = "Добавить";
+            UpdateButton.UseVisualStyleBackColor = false;
+            UpdateButton.Click += UpdateButton_Click;
+            // 
             // ServicesAddForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -207,5 +224,6 @@
         private Button Add;
         private Button DeleteButton;
         private TextBox IdTextBox;
+        private Button UpdateButton;
     }
 }

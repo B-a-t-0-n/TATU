@@ -14,6 +14,7 @@ using TATU.Application.DTO;
 using TATU.Application.Masters.Create;
 using TATU.Application.Services.Create;
 using TATU.Application.Services.Delete;
+using TATU.Application.Services.Update;
 
 namespace TATU.WinForms
 {
@@ -91,6 +92,26 @@ namespace TATU.WinForms
             if (deleteServicesHandler == null)
                 MessageBox.Show("сервис не найден");
             var delete = await deleteServicesHandler.Handle(deleteServicesCommand);
+        }
+
+        private async void UpdateButton_Click(object sender, EventArgs e)
+        {
+            var Title = TitleTextBox.Text;
+            var Description = DescriptionTextBox.Text;
+            var id = Guid.Parse(IdTextBox.Text);
+
+            ServicesDto servicesDto = new ServicesDto(Title, Description);
+
+            UpdateServicesCommand updateServicesCommand = new UpdateServicesCommand(id, servicesDto);
+
+            var updateServicesHandler = Program.ServiceProvider.GetService<UpdateServicesHandler>();
+            if (updateServicesHandler == null)
+                MessageBox.Show("Ошибка Х002");
+
+            var masters = await updateServicesHandler.Handle(updateServicesCommand);
+            MessageBox.Show("Данные успешно добавлены");
+
+
         }
     }
 }
