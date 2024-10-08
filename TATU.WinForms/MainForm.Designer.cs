@@ -38,8 +38,8 @@
             panel12 = new Panel();
             label3 = new Label();
             panel6 = new Panel();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
+            ManagerButton = new FontAwesome.Sharp.IconButton();
+            MastersButton = new FontAwesome.Sharp.IconButton();
             panel8 = new Panel();
             label2 = new Label();
             panel5 = new Panel();
@@ -63,6 +63,7 @@
             Header = new Panel();
             panel3 = new Panel();
             MainUniversalPanel = new Panel();
+            ServicesButton = new FontAwesome.Sharp.IconButton();
             MenuPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel11.SuspendLayout();
@@ -110,7 +111,7 @@
             panel11.Controls.Add(iconButton2);
             panel11.Controls.Add(panel12);
             panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(0, 360);
+            panel11.Location = new Point(0, 415);
             panel11.Name = "panel11";
             panel11.Size = new Size(250, 180);
             panel11.TabIndex = 6;
@@ -177,54 +178,57 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(iconButton4);
-            panel6.Controls.Add(iconButton3);
+            panel6.Controls.Add(ManagerButton);
+            panel6.Controls.Add(MastersButton);
             panel6.Controls.Add(panel8);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(0, 180);
+            panel6.Location = new Point(0, 235);
             panel6.Name = "panel6";
             panel6.Size = new Size(250, 180);
             panel6.TabIndex = 5;
             // 
-            // iconButton4
+            // ManagerButton
             // 
-            iconButton4.Dock = DockStyle.Top;
-            iconButton4.FlatAppearance.BorderSize = 0;
-            iconButton4.FlatStyle = FlatStyle.Flat;
-            iconButton4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            iconButton4.ForeColor = Color.White;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.Napster;
-            iconButton4.IconColor = Color.White;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 50;
-            iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(0, 110);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Padding = new Padding(20, 0, 20, 0);
-            iconButton4.Size = new Size(250, 60);
-            iconButton4.TabIndex = 4;
-            iconButton4.Text = "Текст";
-            iconButton4.UseVisualStyleBackColor = true;
+            ManagerButton.Dock = DockStyle.Top;
+            ManagerButton.FlatAppearance.BorderSize = 0;
+            ManagerButton.FlatStyle = FlatStyle.Flat;
+            ManagerButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ManagerButton.ForeColor = Color.White;
+            ManagerButton.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckDollar;
+            ManagerButton.IconColor = Color.White;
+            ManagerButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            ManagerButton.IconSize = 50;
+            ManagerButton.ImageAlign = ContentAlignment.MiddleLeft;
+            ManagerButton.Location = new Point(0, 110);
+            ManagerButton.Name = "ManagerButton";
+            ManagerButton.Padding = new Padding(20, 0, 36, 0);
+            ManagerButton.Size = new Size(250, 60);
+            ManagerButton.TabIndex = 4;
+            ManagerButton.Text = "Менеджеры";
+            ManagerButton.TextAlign = ContentAlignment.MiddleRight;
+            ManagerButton.UseVisualStyleBackColor = true;
+            ManagerButton.Click += ManagerButton_Click;
             // 
-            // iconButton3
+            // MastersButton
             // 
-            iconButton3.Dock = DockStyle.Top;
-            iconButton3.FlatAppearance.BorderSize = 0;
-            iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            iconButton3.ForeColor = Color.White;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Napster;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 50;
-            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(0, 50);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Padding = new Padding(20, 0, 10, 0);
-            iconButton3.Size = new Size(250, 60);
-            iconButton3.TabIndex = 3;
-            iconButton3.Text = "Мастера";
-            iconButton3.UseVisualStyleBackColor = true;
+            MastersButton.Dock = DockStyle.Top;
+            MastersButton.FlatAppearance.BorderSize = 0;
+            MastersButton.FlatStyle = FlatStyle.Flat;
+            MastersButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            MastersButton.ForeColor = Color.White;
+            MastersButton.IconChar = FontAwesome.Sharp.IconChar.Napster;
+            MastersButton.IconColor = Color.White;
+            MastersButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MastersButton.IconSize = 50;
+            MastersButton.ImageAlign = ContentAlignment.MiddleLeft;
+            MastersButton.Location = new Point(0, 50);
+            MastersButton.Name = "MastersButton";
+            MastersButton.Padding = new Padding(20, 0, 10, 0);
+            MastersButton.Size = new Size(250, 60);
+            MastersButton.TabIndex = 3;
+            MastersButton.Text = "Мастера";
+            MastersButton.UseVisualStyleBackColor = true;
+            MastersButton.Click += MastersButton_Click;
             // 
             // panel8
             // 
@@ -248,13 +252,14 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(ServicesButton);
             panel5.Controls.Add(ReceptionButton);
             panel5.Controls.Add(CounselingButton);
             panel5.Controls.Add(panel7);
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(0, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(250, 180);
+            panel5.Size = new Size(250, 235);
             panel5.TabIndex = 4;
             // 
             // ReceptionButton
@@ -345,7 +350,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(12, 12);
+            button4.Location = new Point(19, 12);
             button4.Name = "button4";
             button4.Size = new Size(50, 49);
             button4.TabIndex = 1;
@@ -496,6 +501,27 @@
             MainUniversalPanel.Size = new Size(1362, 854);
             MainUniversalPanel.TabIndex = 12;
             // 
+            // ServicesButton
+            // 
+            ServicesButton.Dock = DockStyle.Top;
+            ServicesButton.FlatAppearance.BorderSize = 0;
+            ServicesButton.FlatStyle = FlatStyle.Flat;
+            ServicesButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ServicesButton.ForeColor = Color.White;
+            ServicesButton.IconChar = FontAwesome.Sharp.IconChar.FileClipboard;
+            ServicesButton.IconColor = Color.White;
+            ServicesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            ServicesButton.IconSize = 50;
+            ServicesButton.ImageAlign = ContentAlignment.MiddleLeft;
+            ServicesButton.Location = new Point(0, 170);
+            ServicesButton.Name = "ServicesButton";
+            ServicesButton.Padding = new Padding(20, 0, 25, 0);
+            ServicesButton.Size = new Size(250, 60);
+            ServicesButton.TabIndex = 3;
+            ServicesButton.Text = "Приём";
+            ServicesButton.UseVisualStyleBackColor = true;
+            ServicesButton.Click += ServicesButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -549,8 +575,8 @@
         private Panel panel12;
         private Label label3;
         private Panel panel6;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton ManagerButton;
+        private FontAwesome.Sharp.IconButton MastersButton;
         private Panel panel8;
         private Label label2;
         private Panel panel5;
@@ -565,5 +591,6 @@
         private Panel Header;
         private Panel panel3;
         private Panel MainUniversalPanel;
+        private FontAwesome.Sharp.IconButton ServicesButton;
     }
 }

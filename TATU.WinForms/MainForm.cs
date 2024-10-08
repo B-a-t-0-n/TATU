@@ -146,7 +146,7 @@ namespace TATU.WinForms
         private void Header_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
-               { this.WindowState = FormWindowState.Maximized;}
+            { this.WindowState = FormWindowState.Maximized; }
             else this.WindowState = FormWindowState.Normal;
 
         }
@@ -158,8 +158,25 @@ namespace TATU.WinForms
                 ReleaseCapture();
                 SendMessage(this.Handle, 0x112, 0xf012, 0);
             }
-            else 
+            else
             { MouseClickSee = true; }
+        }
+
+        private void MastersButton_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenForm(new MastersForm(), sender);
+        }
+
+        private void ManagerButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ServicesButton_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenForm(new ServicesForm(), sender);
         }
     }
 }

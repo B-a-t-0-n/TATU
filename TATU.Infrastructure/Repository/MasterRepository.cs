@@ -16,6 +16,7 @@ namespace TATU.Infrastructure.Repository
         public async Task Create(Master master)
         {
             await _context.Masters.AddAsync(master);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<Master> GetById(Guid id)

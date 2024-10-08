@@ -107,6 +107,7 @@
             button3.TabIndex = 8;
             button3.Text = "Обновить";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // panel16
             // 

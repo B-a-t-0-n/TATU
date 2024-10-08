@@ -84,7 +84,7 @@
             SingInButton.TabIndex = 4;
             SingInButton.Text = "Вход";
             SingInButton.UseVisualStyleBackColor = false;
-            SingInButton.Click += SingInButton_Click;
+            SingInButton.Click += SingInButton_ClickAsync;
             // 
             // RegistrButton
             // 
@@ -100,6 +100,7 @@
             RegistrButton.TabIndex = 5;
             RegistrButton.Text = "Регестрация";
             RegistrButton.UseVisualStyleBackColor = false;
+            RegistrButton.Click += RegistrButton_Click;
             // 
             // CaptionLabel1
             // 

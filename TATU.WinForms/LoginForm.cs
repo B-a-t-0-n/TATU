@@ -1,5 +1,11 @@
+using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.InteropServices;
 using System.Threading;
+using TATU.Application.Accounts.GetAll;
+using TATU.Application.Accounts.GetById;
+using TATU.Application.Masters.GetAll;
+using TATU.Application.Providers;
+using TATU.Infrastructure.Providers;
 namespace TATU.WinForms
 {
     public partial class LoginForm : Form
@@ -9,12 +15,33 @@ namespace TATU.WinForms
             InitializeComponent();
         }
         Thread transition;
-        private void SingInButton_Click(object sender, EventArgs e) // Переход на глав форму
+        private async void SingInButton_ClickAsync(object sender, EventArgs e) // Переход на глав форму
         {
+            var logins = LoginTextBox.Text;
+            var passwords = PasswordTextBox.Text;
+
+
+            var getAllAccountHandler = Program.ServiceProvider.GetService<GetAllAccountHandler>();
+            if (getAllAccountHandler == null)
+                MessageBox.Show("сервис не найден");
+            
+            var accounts = await getAllAccountHandler.Handle();
+            var passwordHasher = Program.ServiceProvider.GetService<IPasswordHasher>();
+
+
+            var user = accounts.FirstOrDefault(x => x.Login == logins && passwordHasher.Verefy(passwords, x.PasswordHash));
+            if (user == null)
+            {
+                MessageBox.Show("Ошибка, неправильный логин или пароль");
+                return;
+            }
+
             this.Close();
             transition = new Thread(open);
             transition.SetApartmentState(ApartmentState.STA);
             transition.Start();
+
+
         }
 
         // Для управления формой
@@ -90,7 +117,13 @@ namespace TATU.WinForms
         }
         private void open(object sender)
         {
-          System.Windows.Forms.Application.Run(new MainForm()); 
+            System.Windows.Forms.Application.Run(new MainForm());
+        }
+
+        private void RegistrButton_Click(object sender, EventArgs e)
+        {
+            RegForm regForm = new RegForm();    
+            regForm.ShowDialog();
         }
     }
 }
